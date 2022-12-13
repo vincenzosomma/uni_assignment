@@ -45,7 +45,7 @@ f_woman:
 	mov ecx,woman                       ;########################################################################
 	mov edx,woman_len                   ;#  same instructions as f_man functions but using the woman variable
 	call printstring                    ;#
-	jmp done	                        ;########################################################################   
+	jmp done	                    ;########################################################################   
 
 done:
 
@@ -72,7 +72,7 @@ printstring:
 	int 0x80                             ; Poke kernel. the program interrupt by a service performed by the kernel such as input/output
 	ret                                  ; Return from Procedure, to resume the exeution flow ar the program incstructions 
 
-section .data
+section .data			;This section cointains initialised data or constants
                                                                   ; stores the message into the variable prompt
 	prompt db "Are you a Male or Woman?",0xa,"Type: m or w",0xa   ; 0Xa causes the next set of output to occur on the next line
 	prompt_len equ $-prompt                                       ; automatically calculates the lenght of the messages
