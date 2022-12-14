@@ -74,7 +74,7 @@ printstring:
 
 section .data			;This section cointains initialised data or constants
                                                                   ; stores the message into the variable prompt
-	prompt db "Are you a Male or Woman?",0xa,"Type: m or w",0xa   ; 0Xa causes the next set of output to occur on the next line
+	prompt db "Are you a Man or Woman?",0xa,"Type: m or w",0xa   ; 0Xa causes the next set of output to occur on the next line
 	prompt_len equ $-prompt                                       ; automatically calculates the lenght of the messages
 	
 	man db "Hi Sir :) !!",0xa
