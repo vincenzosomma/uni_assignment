@@ -52,7 +52,7 @@ done:
 	mov ebx,0                           ; file descriptor 0 (stdin), standard input (for reading conventional input) (Opengroup.org, 2018)
 	mov eax,1                           ; system call to exit() the program
 	int 0x80                            ; Poke kernel. This will end the program (Linfo.org, 2022)
-
+Male
 getAnsware:
 
 	push ecx                            ; push the 
@@ -83,5 +83,5 @@ section .data			;This section cointains initialised data or constants
 	woman db "Hi Madam :) !!",0xa
 	woman_len equ $-woman
 	
-	w_error db " :'(  WRONG ANSWER!!! TRY AGAIN :P !!!", 0xa
+	w_error db " :(  WRONG ANSWER!!! TRY AGAIN :P !!!", 0xa
 	error_len equ $-w_error
