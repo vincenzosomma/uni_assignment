@@ -1,10 +1,10 @@
-;############################################
-;# This is a simple Assembly program        #
-;# that requests user input  and elaborates #
-;# the output based on the input given      #
-;#                                          #
-;#            by VINCENZO SOMMA             #
-;############################################
+;####################################################
+;#  This is a simple program written in Assebly     #
+;#  IA-32 that requests user input  and elaborates  #
+;#  the output based on the input given.     	    #
+;#                                          	    #
+;#            by VINCENZO SOMMA             	    #
+;####################################################
 
 
 section .text                           ; this section contains the program instructions
