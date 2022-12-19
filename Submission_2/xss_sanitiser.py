@@ -13,13 +13,14 @@ def sanitise_input(input_string):
   denylist = [
   "<script>", "<scr","</script>", "javascript&colon", "onerror", "alert(", "document.",
   ".cookies", "javascript:", "onload(", "vbscript:", "expression", "eval", "&lt;",
-  "onreadystatechange", "xss:expression", "</>", "String.fromCharCode(88,83,83)", 
+  "onreadystatechange", "xss:expression", "</>", "String.fromCharCode(", 
   "src=","atob(", ".URL", "documentURI", "location.", ".href", ".search", "location.*", 
   "window.", ".referrer", "(element", ".innerHTML", "setTimeout", "setInterval",  "execScript", 
   ".fromCharCod", "</scr", "prompt(", "<x", "contenteditable", "onfocus", "oninput", "ondrag", 
   "ondblclick", "oncut", "oncontextmenu", "oncopy", "onblur", "onchange", "onmouseup", "<brute", 
-  "<brute", "formaction", "element.", "setInterval", ".write", ".hash", ".pathname"
-   ]
+  "<brute", "formaction", "element.", "setInterval", ".write", ".hash", ".pathname", "data:", 
+  "bypassSecurityTrustAs*", ".textContent", ".encode(", "\\", "url(" 
+  ]
 
   # transforming the words in the list in lowercase
   for i in range(len(denylist)):
@@ -50,11 +51,13 @@ while loop.upper() == 'Y':
   # passes the user's input to the sanitise_input function
   sanitised_input, count = sanitise_input(user_input)
 
-  
+  if count == 0 :
   # Output user input sanitised
-  print("Your output is:\n", sanitised_input)  
+    print("Your output is:\n", user_input) 
+  else:
+
   # Output the count of user input that may contain XSS similarity
-  print("We found" , count , "XSS similarity in your inout") 
+    print("Your sanitised input:\n", sanitised_input ,"\nWe found" , count , "XSS common similarities in your inout") 
    
    # asks the user if wants to continue
   loop = input("Type 'Y' to continue or 'N' to stop: ")
