@@ -1,6 +1,6 @@
 #########################
 #                       #
-#  Simple xss sanitiser #
+#     XSS sanitiser     #
 #                       #
 #   by Vincenzo Somma   #
 #########################
@@ -17,9 +17,10 @@ def sanitise_input(input_string):
   "src=","atob(", ".URL", "documentURI", "location.", ".href", ".search", "location.*", 
   "window.", ".referrer", "(element", ".innerHTML", "setTimeout", "setInterval",  "execScript", 
   ".fromCharCod", "</scr", "prompt(", "<x", "contenteditable", "onfocus", "oninput", "ondrag", 
-  "ondblclick", "oncut", "oncontextmenu", "oncopy", "onblur", "onchange", "onmouseup", "<brute", 
+  "ondblclick", "oncut", "oncontextmenu", "oncopy", "onblur", "onchange", "onmouse", "<brute", 
   "<brute", "formaction", "element.", "setInterval", ".write", ".hash", ".pathname", "data:", 
-  "bypassSecurityTrustAs*", ".textContent", ".encode(", "\\", "url(" 
+  "bypassSecurityTrustAs*", ".textContent", ".encode(", "\\", "url(", "livescript:", "onerror",
+  "ondragend", "onmouse", "onkey", "onbefor", "&#", "%0",
   ]
 
   # transforming the words in the list in lowercase
@@ -42,7 +43,6 @@ def sanitise_input(input_string):
 
 # initialisation loop
 # The loop continues until the user types 'N' to stop
-
 loop = 'Y'
 while loop.upper() == 'Y':
   # prompts the user for input and transforms the input in lower case
@@ -51,8 +51,9 @@ while loop.upper() == 'Y':
   # passes the user's input to the sanitise_input function
   sanitised_input, count = sanitise_input(user_input)
 
+ #if the sanitise_input function doesn't find any match
   if count == 0 :
-  # Output user input sanitised
+  # Output user input if doesn't if it is safe
     print("Your output is:\n", user_input) 
   else:
   # Output the count of user input that may contain XSS similarities
