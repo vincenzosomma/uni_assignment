@@ -55,9 +55,8 @@ while loop.upper() == 'Y':
   # Output user input sanitised
     print("Your output is:\n", user_input) 
   else:
-
-  # Output the count of user input that may contain XSS similarity
-    print("Your sanitised input:\n", sanitised_input ,"\nWe found" , count , "XSS common similarities in your inout") 
+  # Output the count of user input that may contain XSS similarities
+    print("Your sanitised input:\n", sanitised_input ,"\nWe found" , count , "XSS common similarities in your input") 
    
    # asks the user if wants to continue
   loop = input("Type 'Y' to continue or 'N' to stop: ")
@@ -65,5 +64,3 @@ while loop.upper() == 'Y':
 # Ends the program
 else:
     print("The program is no longer running...")
-
-
