@@ -11,16 +11,32 @@ def sanitise_input(input_string):
 
   # denylist containing some of the common sources used to exploit XSS vulnerabilities
   denylist = [
-  "<script>", "<scr","</script>", "javascript&colon", "onerror", "alert(", "document.",
-  ".cookies", "javascript:", "onload(", "vbscript:", "expression", "eval", "&lt;",
-  "onreadystatechange", "xss:expression", "</>", "String.fromCharCode(", 
-  "src=","atob(", ".URL", "documentURI", "location.", ".href", ".search", "location.*", 
-  "window.", ".referrer", "(element", ".innerHTML", "setTimeout", "setInterval",  "execScript", 
-  ".fromCharCod", "</scr", "prompt(", "<x", "contenteditable", "onfocus", "oninput", "ondrag", 
-  "ondblclick", "oncut", "oncontextmenu", "oncopy", "onblur", "onchange", "onmouse", "<brute", 
-  "<brute", "formaction", "element.", "setInterval", ".write", ".hash", ".pathname", "data:", 
-  "bypassSecurityTrustAs*", ".textContent", ".encode(", "\\", "url(", "livescript:", "onerror",
-  "ondragend", "onmouse", "onkey", "onbefor", "&#", "%0",
+'<script>', '<scr', '</script>', 'javascript&colon', 'onerror', 'alert(', 'document.', 
+'.cookies', 'javascript:', 'onload(', 'vbscript:', 'expression', 'eval', '<', 
+'onreadystatechange', 'xss:expression', '</>', 'String.fromCharCode(', 'src=', 
+'atob(', '.URL', 'documentURI', 'location.', '.href', '.search', 'location.*', 
+'window.', '.referrer', '(element', '.innerHTML', 'setTimeout', 'setInterval', 
+'execscript', '.fromCharCod', '</scr', 'prompt(', '<x', 'contenteditable', 'onfocus',
+'oninput', 'ondrag', 'ondblclick', 'oncut', 'oncontextmenu', 'oncopy', 'onblur', 'onchange',
+'onmouse', '<brute', 'formaction', 'element.', '.write', '.hash', '.pathname', 'data:',
+'bypassSecurityTrustAs*', '.textContent', '.encode(', '\\', 'url(', 'livescript:', 
+'ondragend', 'onkey', 'onbefor', '&#', '%0', 'onafterprint', 'onafterscriptexecute',
+'onanimationcancel', 'onanimationend', 'onanimationiteration', 'onanimationstart', 
+'onauxclick', 'onbeforecopy', 'onbeforecut', 'onbeforeinput', 'onbeforeprint', 
+'onbeforescriptexecute', 'onbeforeunload', 'onbegin', 'onbounce', 'oncanplay', 
+'oncanplaythrough', 'onclick', 'onclose', 'oncuechange', 'ondragenter', 'ondragleave',
+'ondragover', 'ondragstart', 'ondrop', 'ondurationchange', 'onend', 'onended', 'onfinish',
+'onfocusin', 'onfocusout', 'onfullscreenchange', 'onhashchange', 'oninvalid', 'onkeydown',
+'onkeypress', 'onkeyup', 'onload', 'onloadeddata', 'onloadedmetadata', 'onloadend', 'onloadstart',
+'onmessage', 'onmousedown', 'onmouseenter', 'onmouseleave', 'onmousemove', 'onmouseout', 'onmouseover',
+'onmouseup', 'onmousewheel', 'onmozfullscreenchange', 'onpagehide', 'onpageshow', 'onpaste', 'onpause',
+'onplay', 'onplaying', 'onpointerdown', 'onpointerenter', 'onpointerleave', 'onpointermove', 'onpointerout',
+'onpointerover', 'onpointerrawupdate', 'onpointerup', 'onpopstate', 'onprogress', 'onratechange', 'onrepeat',
+'onreset', 'onresize', 'onscroll', 'onsearch', 'onseeked', 'onseeking', 'onselect', 'onselectionchange',
+'onselectstart', 'onshow', 'onstart', 'onsubmit', 'ontimeupdate', 'ontoggle', 'ontouchend',
+'ontouchmove', 'ontouchstart', 'ontransitioncancel', 'ontransitionend', 'ontransitionrun',
+'ontransitionstart', 'onunhandledrejection', 'onunload', 'onvolumechange', 'onwebkitanimationend',
+'onwebkitanimationiteration', 'onwebkitanimationstart', 'onwebkittransitionend', 'onwheel'
   ]
 
   # transforming the words in the list in lowercase
